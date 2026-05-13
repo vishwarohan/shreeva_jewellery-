@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap');
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C96A;
+  --black: #080808;
+  --dark: #111111;
+  --dark-surface: #1A1A1A;
+  --dark-elevated: #222222;
+  --muted: #888888;
+  --text: #F0EBE0;
+  --border: rgba(201, 168, 76, 0.2);
+  --danger: #e74c3c;
+  --success: #2ecc71;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: inherit; }
+img { max-width: 100%; display: block; }
+input, select, textarea { font-family: inherit; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+.section { padding: 5rem 0; }
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  background: var(--gold); color: var(--black);
+  border: 1px solid var(--gold);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.85rem 1.75rem;
+  border: 1px solid rgba(240,235,224,0.25); color: var(--text);
+  background: transparent;
+  transition: all 0.2s; cursor: pointer;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+.btn-danger {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid rgba(231, 76, 60, 0.4); color: var(--danger);
+  background: transparent; transition: all 0.2s; cursor: pointer;
+}
+.btn-danger:hover { background: var(--danger); color: white; }
+
+/* Form elements */
+.form-group { margin-bottom: 1rem; }
+.form-label {
+  display: block; margin-bottom: 0.35rem;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
+}
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  background: var(--dark-surface);
+  border: 1px solid rgba(201,168,76,0.25);
+  color: var(--text);
+  padding: 0.65rem 0.9rem;
+  font-size: 0.9rem; outline: none;
+  transition: border-color 0.2s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
+.form-select { appearance: none; cursor: pointer; }
+.form-textarea { resize: vertical; min-height: 90px; }
+
+/* Section header */
+.section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.6rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.section-label::before {
+  content: ''; display: block; width: 24px; height: 1px; background: var(--gold);
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  letter-spacing: 0.04em; line-height: 1;
+}
+
+/* Spinner */
+.spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 3rem auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Page loader */
+.page-loading { display: flex; justify-content: center; padding: 6rem 0; }
+
+/* Badge */
+.badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  background: var(--gold); color: var(--black);
+  display: inline-block;
+}
+
+/* Price */
+.price-display {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem; letter-spacing: 0.05em; color: var(--gold);
+}
+.price-compare {
+  font-size: 0.85rem; color: var(--muted);
+  text-decoration: line-through; margin-left: 0.5rem;
+}
+
+/* Fade animation */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.fade-in { animation: fadeIn 0.5s ease forwards; }
+
+/* Gold divider */
+.gold-divider {
+  height: 1px; background: var(--border); margin: 1.5rem 0;
+}
+
+/* Star rating */
+.stars { display: flex; gap: 2px; color: var(--gold); font-size: 0.9rem; }
+.star-empty { color: var(--muted); }
+
+/* Global WhatsApp bubble animation */
+@keyframes bubblePop {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}

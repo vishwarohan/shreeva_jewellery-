@@ -1,0 +1,84 @@
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(8,8,8,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  transition: border-color 0.3s;
+}
+.navbar.scrolled { border-bottom-color: rgba(201,168,76,0.35); }
+.navbar-inner {
+  max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+  height: 68px; display: flex; align-items: center; gap: 2rem;
+}
+.navbar-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.9rem; letter-spacing: 0.15em; color: var(--gold);
+  flex-shrink: 0;
+}
+.navbar-links {
+  display: flex; gap: 2rem; list-style: none; flex: 1; justify-content: center;
+}
+.navbar-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--text); transition: color 0.2s;
+}
+.navbar-links a:hover { color: var(--gold); }
+
+.navbar-actions { display: flex; align-items: center; gap: 1.25rem; flex-shrink: 0; }
+
+.navbar-login {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid var(--gold); color: var(--gold);
+  transition: all 0.2s;
+}
+.navbar-login:hover { background: var(--gold); color: var(--black); }
+
+.navbar-user { position: relative; cursor: pointer; }
+.navbar-user-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold); padding: 0.45rem 0;
+  border-bottom: 1px solid var(--gold);
+}
+.navbar-dropdown {
+  position: absolute; top: calc(100% + 0.75rem); right: 0;
+  background: var(--dark-elevated); border: 1px solid var(--border);
+  min-width: 160px; display: none; flex-direction: column;
+}
+.navbar-user:hover .navbar-dropdown { display: flex; }
+.navbar-dropdown a, .navbar-dropdown button {
+  padding: 0.65rem 1rem; font-size: 0.82rem; color: var(--text);
+  background: none; border: none; text-align: left; width: 100%;
+  transition: background 0.15s, color 0.15s;
+}
+.navbar-dropdown a:hover, .navbar-dropdown button:hover {
+  background: var(--dark-surface); color: var(--gold);
+}
+
+.navbar-cart { position: relative; font-size: 1.1rem; line-height: 1; }
+.cart-badge {
+  position: absolute; top: -6px; right: -8px;
+  background: var(--gold); color: var(--black);
+  font-size: 0.6rem; font-weight: 700;
+  width: 16px; height: 16px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; padding: 4px;
+}
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); }
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none; position: fixed; top: 68px; left: 0; right: 0;
+    background: var(--dark); border-bottom: 1px solid var(--border);
+    flex-direction: column; padding: 1.5rem 2rem; gap: 1.25rem;
+  }
+  .navbar-links.open { display: flex; }
+  .hamburger { display: flex; }
+}
